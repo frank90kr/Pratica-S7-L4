@@ -7,6 +7,16 @@ const imgAll = document.querySelectorAll("img");
 const cardAll = document.querySelectorAll(".col-md-4");
 const btnHide = document.querySelectorAll(".btn-danger");
 
+const allText = document.querySelectorAll(".text-id"); //recuperiamo il testo 9 mins
+
+const form = document.getElementById("form"); //creazione campo di ricerca es.6
+const input = document.getElementById("input");
+
+form.onsubmit = function (e) {
+  e.preventDefault();
+  call(input.value);
+};
+
 btn1.onclick = function () {
   call("calabria");
 };
@@ -33,6 +43,12 @@ function call(nome) {
 
       imgAll.forEach((img, index) => {
         img.setAttribute("src", oggetti.photos[index].src.tiny);
+      });
+
+      //For each per sostituire 9 mins nell'id delle foto
+
+      allText.forEach((id, index) => {
+        id.textContent = oggetti.photos[index].id;
       });
 
       //   console.log(oggetti.photos);
